@@ -739,11 +739,7 @@ public final class SQLiteConnection implements CancellationSignal.OnCancelListen
                 try {
                     int fd = nativeExecuteForBlobFileDescriptor(
                             mConnectionPtr, statement.mStatementPtr);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
-                        return fd >= 0 ? ParcelFileDescriptor.adoptFd(fd) : null;
-                    } else {
-                        throw new UnsupportedOperationException();
-                    }
+                    return fd >= 0 ? ParcelFileDescriptor.adoptFd(fd) : null;
                 } finally {
                     detachCancellationSignal(cancellationSignal);
                 }
@@ -1043,11 +1039,7 @@ public final class SQLiteConnection implements CancellationSignal.OnCancelListen
         if (count != statement.mNumParameters) {
             String message = "Expected " + statement.mNumParameters + " bind arguments but "
                 + count + " were provided.";
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                throw new SQLiteBindOrColumnIndexOutOfRangeException(message);
-            } else {
-                throw new SQLiteException(message);
-            }
+            throw new SQLiteBindOrColumnIndexOutOfRangeException(message);
         }
         if (count == 0) {
             return;
