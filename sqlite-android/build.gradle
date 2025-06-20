@@ -48,8 +48,8 @@ android {
 }
 
 dependencies {
-    api("androidx.core:core:1.15.0")
-    api("androidx.sqlite:sqlite:2.4.0")
+    api("androidx.core:core:1.16.0")
+    api("androidx.sqlite:sqlite:2.5.2")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test:core:1.6.1")
     androidTestImplementation("androidx.test:runner:1.6.2")
@@ -58,7 +58,7 @@ dependencies {
 }
 
 ext {
-    sqliteDistributionUrl = "https://www.sqlite.org/2025/sqlite-amalgamation-3490100.zip"
+    sqliteDistributionUrl = "https://www.sqlite.org/2025/sqlite-amalgamation-3500100.zip"
 }
 
 tasks.register("downloadSqlite", Download) {
