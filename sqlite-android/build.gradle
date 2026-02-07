@@ -7,15 +7,14 @@ plugins {
 }
 
 android {
-    buildToolsVersion = "35.0.1"
-    ndkVersion "27.2.12479018"
+    ndkVersion "27.3.13750724"
 
-    compileSdk 35
+    compileSdkVersion 36
 
     namespace "io.requery.android.sqlite"
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 23
         versionName VERSION_NAME
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -48,8 +47,8 @@ android {
 }
 
 dependencies {
-    api("androidx.core:core:1.16.0")
-    api("androidx.sqlite:sqlite:2.5.2")
+    api("androidx.core:core:1.17.0")
+    api("androidx.sqlite:sqlite:2.6.2")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test:core:1.6.1")
     androidTestImplementation("androidx.test:runner:1.6.2")
@@ -58,7 +57,7 @@ dependencies {
 }
 
 ext {
-    sqliteDistributionUrl = "https://www.sqlite.org/2025/sqlite-amalgamation-3500100.zip"
+    sqliteDistributionUrl = "https://www.sqlite.org/2026/sqlite-amalgamation-3510200.zip"
 }
 
 tasks.register("downloadSqlite", Download) {
